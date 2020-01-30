@@ -1,1 +1,11 @@
-<p>recipe-item works!</p>
+<a href="#" class="list-group-item list-group-item-action flex-column align-items-start" (click)="onSelected()">
+	<div class="row">
+		<div class="col-md-3">
+			<img src="{{i.imgPath}}" class="img-fluid">
+		</div>
+		<div class="col-md-9">
+			<h4 class="list-group-item-heading">{{i.name}}</h4>
+			<p class="list-group-item-text">{{i.description}}</p>
+		</div>
+	</div>
+</a>
