@@ -11,9 +11,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  isShow = true
   onSelect(route:string){
   	this.routeSelected.emit(route)
   }
+
+
 
 }
