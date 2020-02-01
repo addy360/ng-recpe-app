@@ -15,9 +15,9 @@
 		<div class="dropdown">
 			<button class="btn btn-info dropdown-toggle" id="dmenu" data-toggle="dropdown">Action</button>
 			<div class="dropdown-menu" [ngClass]="{show : isShow}" aria-labelledby="dmenu">
-				<a href="#" (click)="onAddToShopping()" class="dropdown-item">Add ingredient</a>
-				<a href="#" class="dropdown-item">Edit recipe</a>
-				<a href="#" class="dropdown-item">Delete recipe</a>
+				<a [routerLink]="" (click)="onAddToShopping()" class="dropdown-item">Add ingredient</a>
+				<a [routerLink]="['edit']" class="dropdown-item">Edit recipe</a>
+				<a [routerLink]="" class="dropdown-item">Delete recipe</a>
 			</div>
 		</div>
 	</div>
