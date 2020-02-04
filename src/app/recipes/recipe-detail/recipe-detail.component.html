@@ -17,7 +17,7 @@
 			<div class="dropdown-menu" [ngClass]="{show : isShow}" aria-labelledby="dmenu">
 				<a [routerLink]="" (click)="onAddToShopping()" class="dropdown-item">Add ingredient</a>
 				<a [routerLink]="['edit']" class="dropdown-item">Edit recipe</a>
-				<a [routerLink]="" class="dropdown-item">Delete recipe</a>
+				<a [routerLink]="" (click)="onDelete()" class="dropdown-item">Delete recipe</a>
 			</div>
 		</div>
 	</div>

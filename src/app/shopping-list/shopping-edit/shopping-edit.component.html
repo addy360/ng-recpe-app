@@ -1,23 +1,29 @@
 <div class="row">
-	<div class="col-md-6 mx-auto">
-		<form>
-			<div class="form-row">
-				<div class="col-md-8 form-group">
-					<label for="name">Name</label>
-					<input type="text" id="name" class="form-control" #name>
-				</div>
-				<div class="col-md-4 form-group">
-					<label for="amount">Amount</label>
-					<input type="number" id="amount" class="form-control" #amount>
-				</div>
-				<div class="col-md-4">
-					<button type="submit" class="btn btn-outline-info btn-block" (click)="onAdd()">Add ingredient</button>
-				</div>
-				<div class="col-md-4">
-					<button type="button" class="btn btn-outline-danger btn-block">Delete</button>
-				</div>
-				<div class="col-md-4">
-					<button type="button" class="btn btn-outline-secondary btn-block">Clear</button>
+	<div class="col-md-9 mx-auto">
+		<form (ngSubmit)="onAdd(f)" #f="ngForm">
+			<div class="card card-body bg-light">
+				<div class="form-row">
+					<div class="col-md-8 form-group">
+						<label for="name">Name</label>
+						<input type="text" name="name" id="name" class="form-control" ngModel required >
+					</div>
+					<div class="col-md-4 form-group">
+						<label for="amount">Amount</label>
+						<input type="number" name="amount" id="amount" class="form-control" ngModel required >
+					</div>
+					<div class="col-md-4">
+						<button type="submit" class="btn btn-outline-info btn-block" [disabled]="!f.valid" >
+						 {{editMode? "Update Ingredient": "Add ingredient"}}
+						</button>
+					</div>
+					<div class="col-md-4">
+						<button [disabled] = "!editMode" type="button" class="btn btn-outline-danger btn-block" (click)="onDelete()">
+							Delete
+						</button>
+					</div>
+					<div class="col-md-4">
+						<button type="button" class="btn btn-outline-secondary btn-block" (click)="onClear()">Clear</button>
+					</div>
 				</div>
 			</div>
 		</form>

@@ -1,1 +1,66 @@
-<p>recipe-edit works!</p>
+<div class="row">
+	<div class="col-md-12 mx-auto">
+		<div class="card card-body">
+			<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+				<div class="form-row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Name</label>
+							<input class="form-control" formControlName="name" type="text">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Image path</label>
+							<input class="form-control" formControlName="imgPath" type="text" #path>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="card card-body">
+							<img [src]="path.value" class="img-fluid">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<textarea class="form-control" formControlName="description" rows="6"></textarea>
+						</div>
+					</div>
+					<div class="col-md-12" formArrayName="ingredients">
+						<div class="card card-body bg-light mb-2">
+							<div class="row" 
+							*ngFor="let ingCtl of recipeForm.get('ingredients').controls; let i = index" 
+							[formGroupName]="i">
+								<div class="col-md-7">
+									<div class="form-group">
+										<input class="form-control" formControlName="name" type="text">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<input class="form-control" formControlName="amount"  type="number">
+									</div>
+								</div>
+								<div class="col-md-2">
+									<!-- <div class="form-group"> -->
+										<button type="button" (click)="onDelete(i)" class="btn btn-danger btn-block my-auto">X</button>
+									<!-- </div> -->
+								</div>
+							</div>
+							<button type="button" class="btn btn-outline-primary ml-auto" (click)="onAddIngredient()">Add Ingredient</button>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<button type="submit" class="btn btn-outline-primary btn-block">save</button>
+						</div>
+					</div>	
+					<div class="col-md-6">
+						<div class="form-group">
+							<button type="button" class="btn btn-outline-danger btn-block" (click)="onCancel()">cancel</button>
+						</div>
+					</div>	
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
