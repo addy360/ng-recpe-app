@@ -2,7 +2,7 @@
 	<div class="card-header">
 		{{recipe.name}}
 	</div>
-	<img src="{{recipe.imgPath}}" class="card-img-top">
+	<img src="{{recipe.imgPath}}" style=" width: 70%" class="img-fluid card-img-top">
 	<div class="card-body">
 		<p class="card-text">{{recipe.description}}</p>
 		<ul class="list-group">
@@ -13,8 +13,8 @@
 	</div>
 	<div class="card-footer">
 		<div class="dropdown">
-			<button class="btn btn-info dropdown-toggle" id="dmenu" data-toggle="dropdown">Action</button>
-			<div class="dropdown-menu" [ngClass]="{show : isShow}" aria-labelledby="dmenu">
+			<button class="btn btn-info dropdown-toggle" (click)="onToggleDropdown()" id="dmenu" data-toggle="dropdown">Action</button>
+			<div class="dropdown-menu" [ngClass]="dropDownService.isShow? 'show' : ''" aria-labelledby="dmenu">
 				<a [routerLink]="" (click)="onAddToShopping()" class="dropdown-item">Add ingredient</a>
 				<a [routerLink]="['edit']" class="dropdown-item">Edit recipe</a>
 				<a [routerLink]="" (click)="onDelete()" class="dropdown-item">Delete recipe</a>

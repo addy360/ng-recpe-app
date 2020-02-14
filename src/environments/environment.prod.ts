@@ -1,3 +1,5 @@
+import { keys } from '../keys'
 export const environment = {
-  production: true
+  production: false,
+  API_KEY:keys.API_KEY
 };

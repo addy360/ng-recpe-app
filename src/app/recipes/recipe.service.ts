@@ -14,13 +14,20 @@ export class RecipeService{
 	constructor(private shoppingListService: ShoppingListService) {
 		// code...
 	}
-	private recipes:Recipe[] = [
-		new Recipe('test recipe one','recipe one for testing purposes','../img/test.png',[new Ingredient('meat',2)]),
-		new Recipe('test recipe two','recipe two for testing purposes','../img/test.png',[new Ingredient('chips',1)]),
-	]
+	// private recipes:Recipe[] = [
+	// 	new Recipe('test recipe one','recipe one for testing purposes','../img/test.png',[new Ingredient('meat',2)]),
+	// 	new Recipe('test recipe two','recipe two for testing purposes','../img/test.png',[new Ingredient('chips',1)]),
+	// ]
+
+	private recipes:Recipe[] = []
 
 	getRecipe(){
 		return this.recipes.slice()
+	}
+
+	setRecipes(recipes:Recipe[]){
+		this.recipes = recipes
+		this.recipeChanged.next(this.recipes.slice())
 	}
 
 	addIngredient(ingredients:Ingredient[]){
