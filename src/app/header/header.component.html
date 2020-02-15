@@ -2,10 +2,10 @@
   <nav class="navbar navbar-expand-sm navbar-dark bg-info">
     <div class="container">
       <a routerLink="/" class="navbar-brand">Addy360</a>
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <button class="navbar-toggler" (click)="toggleShow()" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="collapse navbar-collapse" [ngClass]="collapse ? 'show' : ''" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item " *ngIf="isAuth">
             <a routerLink="/recipes" class="nav-link" routerLinkActive="active" >

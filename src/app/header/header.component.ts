@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
               public dropDownService:DropDrownService) { }
   private userSub:Subscription
   isAuth = false
+  collapse:boolean = false
   ngOnInit() {
     this.userSub = this.authService.user.subscribe(user=>{
       this.isAuth = user ? true : false
@@ -38,6 +39,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout(){
     this.authService.logout()
+  }
+
+  toggleShow(){
+    this.collapse = !this.collapse
   }
 
   
