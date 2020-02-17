@@ -28,7 +28,7 @@
 					<div class="col-md-12" formArrayName="ingredients">
 						<div class="card card-body bg-light mb-2">
 							<div class="row" 
-							*ngFor="let ingCtl of recipeForm.get('ingredients').controls; let i = index" 
+							*ngFor="let ingCtl of ingredientsControls; let i = index" 
 							[formGroupName]="i">
 								<div class="col-md-7">
 									<div class="form-group">
